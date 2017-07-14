@@ -6,6 +6,15 @@ RSpec.describe Strings2conf do
   end
 
   it 'does something useful' do
-    expect(false).to eq(true)
+    expect(Strings2conf.convert(<<~JSON
+      {
+        "puppet_classes": [],
+        "defined_types": [],
+        "resource_types": [],
+        "providers": [],
+        "puppet_functions": []
+      }
+    JSON
+    )).to match(/ac:structured-macro/)
   end
 end
